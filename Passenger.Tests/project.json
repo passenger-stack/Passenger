@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0-*",
+  "name": "Passenger.Tests",
+  "dependencies": {
+      "Passenger.Core": "1.0.*",
+      "Passenger.Infrastructure": "1.0.*",
+      "NUnit": "3.5.0",
+      "Moq": "4.6.62-alpha",
+      "FluentAssertions": "4.19.0",
+      "dotnet-test-nunit": "3.4.0-beta-3"
+  },
+  "testRunner": "nunit",
+  "frameworks": {
+    "netcoreapp1.1": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.1.0"
+        }
+      },
+      "imports": "dnxcore50"
+    }
+  }
+}

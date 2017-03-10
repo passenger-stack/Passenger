@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "name": "Passenger.Infrastructure",
+  "dependencies": {
+    "Passenger.Core": "1.0.*",
+    "NETStandard.Library": "1.6.1"
+  },
+  "frameworks": {
+    "netstandard1.6": {
+    }
+  },
+  "tooling": {
+    "defaultNamespace": "Passenger.Infrastructure"
+  }
+}
