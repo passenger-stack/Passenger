@@ -13,25 +13,16 @@ namespace Passenger.Infrastructure.Repositories
         public void Add(Driver driver)
         {
             _drivers.Add(driver);
-
         }
 
-        public Driver Get(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public object Get(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public Driver Get(Guid userId)
+            => _drivers.Single(x => x.UserId == userId);
 
         public IEnumerable<Driver> GetAll()
-        => _drivers;
+            => _drivers;
 
         public void Update(Driver driver)
         {
-            throw new NotImplementedException();
         }
     }
 }

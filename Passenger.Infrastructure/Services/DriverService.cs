@@ -1,3 +1,4 @@
+using System;
 using Passenger.Core.Repositories;
 using Passenger.Infrastructure.DTO;
 
@@ -13,9 +14,9 @@ namespace Passenger.Infrastructure.Services
             _driverRepository = driverRepository;
         }
 
-        public DriverDto Get(int id)
+        public DriverDto Get(Guid userId)
         {
-            var driver = _driverRepository.Get(id);
+            var driver = _driverRepository.Get(userId);
 
             return new DriverDto
             {
