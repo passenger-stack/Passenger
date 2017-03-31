@@ -15,12 +15,13 @@ namespace Passenger.Core.Domain
         {
         }
 
-         protected Node(string address, double longitude, double latitude) 
+        protected Node(string address, double longitude, double latitude) 
         {
             SetAdress(address);
             SetLongitude(longitude);
             SetLatitude(latitude);
         }
+
         public void SetAdress(string address) 
         {
             if(!NameRegex.IsMatch(address))
@@ -31,6 +32,7 @@ namespace Passenger.Core.Domain
             Address = address;
             UpdatedAt = DateTime.UtcNow;
         }
+
         public void SetLongitude(double longitude) 
         {
             if (double.IsNaN(longitude)) 
@@ -45,6 +47,7 @@ namespace Passenger.Core.Domain
             Longitude = longitude;
             UpdatedAt = DateTime.UtcNow;
         }
+        
         public void SetLatitude(double latitude) 
         {
             if (double.IsNaN(Latitude)) 
