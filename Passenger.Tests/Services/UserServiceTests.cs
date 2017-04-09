@@ -21,5 +21,16 @@ namespace Passenger.Tests.ServicesmapperMock
 
             userRepositoryMock.Verify(x => x.AddAsync(It.IsAny<User>()), Times.Once);
         }
+
+        public async Task test_name()
+        {
+            var userRepositoryMock = new Mock<IUserRepository>();
+            var mapperMock = new Mock<IMapper>();
+
+            var userService = new UserService(userRepositoryMock.Object, mapperMock.Object);
+            await userService.GetAsync("user1@email.com");
+
+            userRepositoryMock.Verify(x => x.GetAsync("user1@email.com", 
+        }
     }
 }
