@@ -13,6 +13,5 @@ namespace Passenger.Core.Repositories
         Task AddAsync(User user);
         Task UpdateAsync(User user);
         Task RemoveAsync(Guid id);
-        void GetAsync(string v1, string v2);
     }
 }
