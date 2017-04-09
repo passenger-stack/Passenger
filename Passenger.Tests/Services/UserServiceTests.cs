@@ -30,9 +30,26 @@ namespace Passenger.Tests.ServicesmapperMock
 
             var userService = new UserService(userRepositoryMock.Object, mapperMock.Object);
             await userService.GetAsync("user1@email.com");
+            
+            var user = new User("user1@email.com");
 
             userRepositoryMock
-            .Setup(x => x.GetAsync(It.IsAny<string>())).ReturnsAsync();
+            .Setup(x => x.GetAsync(It.IsAny<string>())).ReturnsAsync(user);
         }
+
+        [Fact]
+        public async Task when_calling_get_async_and_user_does_not_exists()
+        {
+            var userRepositoryMock = new Mock<IUserRepository>();
+            var mapperMock = new Mock<IMapper>();
+
+            var userService = new UserService(userRepositoryMock.Object, mapperMock.Object);
+            await userService.GetAsync("user@email.com");
+            
+            userRepositoryMock
+            .Setup(x => x.GetAsync("user@email.com"))
+            .ReturnsAsync(() => null);
+        }
+
     }
 }
