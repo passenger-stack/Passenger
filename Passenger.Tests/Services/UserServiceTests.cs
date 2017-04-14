@@ -6,7 +6,7 @@ using Passenger.Core.Repositories;
 using AutoMapper;
 using Passenger.Core.Domain;
 
-namespace Passenger.Tests.Services
+namespace Passenger.Tests.ServicesmapperMock
 {
     public class UserServiceTests
     {
@@ -23,7 +23,7 @@ namespace Passenger.Tests.Services
         }
 
         [Fact]
-        public async Task when_calling_get_async_and_user_exists_it_should_invoke_user_repository_get_async()
+        public async Task when_calling_get_async_and_user_exists()
         {
             var userRepositoryMock = new Mock<IUserRepository>();
             var mapperMock = new Mock<IMapper>();
@@ -31,16 +31,14 @@ namespace Passenger.Tests.Services
             var userService = new UserService(userRepositoryMock.Object, mapperMock.Object);
             await userService.GetAsync("user1@email.com");
             
-            var user = new User("user1@email.com", "user1", "secret", "salt");
+            var user = new User("user1@email.com");
 
-            userRepositoryMock.Setup(x => x.GetAsync(It.IsAny<string>()))
-                              .ReturnsAsync(user);
-
-            userRepositoryMock.Verify(x => x.GetAsync(It.IsAny<string>()), Times.Once());
+            userRepositoryMock
+            .Setup(x => x.GetAsync(It.IsAny<string>())).ReturnsAsync(user);
         }
 
         [Fact]
-        public async Task when_calling_get_async_and_user_does_not_exist_it_should_invoke_user_repository_get_async()
+        public async Task when_calling_get_async_and_user_does_not_exist()
         {
             var userRepositoryMock = new Mock<IUserRepository>();
             var mapperMock = new Mock<IMapper>();
@@ -48,10 +46,8 @@ namespace Passenger.Tests.Services
             var userService = new UserService(userRepositoryMock.Object, mapperMock.Object);
             await userService.GetAsync("user@email.com");
             
-            userRepositoryMock.Setup(x => x.GetAsync("user@email.com"))
-                              .ReturnsAsync(() => null);
-
-            userRepositoryMock.Verify(x => x.GetAsync(It.IsAny<string>()), Times.Once());
+            userRepositoryMock
+            .Setup(x => x.GetAsync("user500@email.com")).ReturnsAsync(() => null);
         }
 
     }
