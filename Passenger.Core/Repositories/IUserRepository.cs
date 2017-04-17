@@ -5,7 +5,7 @@ using Passenger.Core.Domain;
 
 namespace Passenger.Core.Repositories
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepository
     {
         Task<User> GetAsync(Guid id); 
         Task<User> GetAsync(string email);

@@ -9,7 +9,6 @@ namespace Passenger.Infrastructure.Services
 {
     public class DriverService : IDriverService
     {
-        
         private readonly IDriverRepository _driverRepository;
         private readonly IMapper _mapper;
 
