@@ -35,8 +35,7 @@ namespace Passenger.Infrastructure.Services
                 throw new Exception("Invalid credentials");
             }
             
-            var salt = _encrypter.GetSalt(password);
-            var hash = _encrypter.GetHash(password, salt);
+            var hash = _encrypter.GetHash(password, user.Salt);
             if(user.Password == hash)
             {
                 return;
@@ -54,7 +53,7 @@ namespace Passenger.Infrastructure.Services
 
             var salt = _encrypter.GetSalt(password);
             var hash = _encrypter.GetHash(password, salt);
-            user = new User(email, username, hash, role, salt);
+            user = new User(email, username, role, hash, salt);
             await _userRepository.AddAsync(user);
         }
     }
