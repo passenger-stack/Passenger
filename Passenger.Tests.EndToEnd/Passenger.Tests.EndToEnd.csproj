@@ -8,7 +8,9 @@
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <RuntimeFrameworkVersion>1.1.1</RuntimeFrameworkVersion>
   </PropertyGroup>
-
+  <ItemGroup>
+    <Content Include="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../Passenger.Api/Passenger.Api.csproj" />
     <ProjectReference Include="../Passenger.Infrastructure/Passenger.Infrastructure.csproj" />

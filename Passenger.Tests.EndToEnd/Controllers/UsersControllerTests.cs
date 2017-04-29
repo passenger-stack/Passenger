@@ -16,14 +16,6 @@ namespace Passenger.Tests.EndToEnd.Controllers
     public class UsersControllerTests : ControllerTestsBase
     {
         [Fact]
-        public async Task given_valid_email_user_should_exist()
-        {
-            var email = "user1@email.com";
-            var user = await GetUserAsync(email);
-            user.Email.ShouldBeEquivalentTo(email);
-        }
-
-        [Fact]
         public async Task given_invalid_email_user_should_not_exist()
         {
             var email = "user1000@email.com";
