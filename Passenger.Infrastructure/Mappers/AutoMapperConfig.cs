@@ -9,8 +9,11 @@ namespace Passenger.Infrastructure.Mappers
         public static IMapper Initialize()
             => new MapperConfiguration(cfg => 
             {
-                cfg.CreateMap<User, UserDto>();
                 cfg.CreateMap<Driver, DriverDto>();
+                cfg.CreateMap<Node, NodeDto>();
+                cfg.CreateMap<Route, RouteDto>();
+                cfg.CreateMap<User, UserDto>();
+                cfg.CreateMap<Vehicle, VehicleDto>();
             })
             .CreateMapper();
     }

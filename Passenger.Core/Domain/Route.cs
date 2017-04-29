@@ -5,22 +5,22 @@ namespace Passenger.Core.Domain
 {
     public class Route
     {
-        public Guid Id { get; protected set; }
-        public Node StartNode { get; protected set; }
-        public Node EndNode { get; protected set; }
+        public string Name { get; protected set; }
+        public Node Start { get; protected set; }
+        public Node End { get; protected set; }
 
         protected Route()
         {
-            Id = Guid.NewGuid();
         }
 
-        protected Route(Node startnode, Node endnode)
+        protected Route(string name, Node start, Node end)
         {
-            StartNode = startnode;
-            EndNode = endnode;
+            Name = name;
+            Start = start;
+            End = end;
         }
 
-        public static Route Create(Node startnode, Node endnode)
-            => new Route(startnode, endnode);
+        public static Route Create(string name, Node start, Node end)
+            => new Route(name, start, end);
     }
 }

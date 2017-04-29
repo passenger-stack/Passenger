@@ -21,10 +21,10 @@ namespace Passenger.Core.Domain
         {
         }
 
-        public User(string email, string username, string role, 
+        public User(Guid userId, string email, string username, string role, 
             string password, string salt)
         {
-            Id = Guid.NewGuid();
+            Id = userId;
             Email = email.ToLowerInvariant();
             Username = username;
             Role = role;

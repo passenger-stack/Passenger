@@ -17,6 +17,13 @@ namespace Passenger.Api.Controllers
             _userService = userService;
         }
 
+        public async Task<IActionResult> Get()
+        {
+            var users = await _userService.BrowseAsync();
+
+            return Json(users);
+        }
+
         [HttpGet("{email}")]
         public async Task<IActionResult> Get(string email)
         {

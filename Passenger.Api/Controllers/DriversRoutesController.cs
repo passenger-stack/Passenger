@@ -7,28 +7,21 @@ using Passenger.Infrastructure.Services;
 
 namespace Passenger.Api.Controllers
 {
-    public class DriversController : ApiControllerBase
+    [Route("drivers/routes")]
+    public class DriversRoutesController : ApiControllerBase
     {
         private readonly IDriverService _driverService;
 
-        public DriversController(ICommandDispatcher commandDispatcher,
+        public DriversRoutesController(ICommandDispatcher commandDispatcher,
             IDriverService driverService) 
             : base(commandDispatcher)
         {
             _driverService = driverService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            var drivers = await _driverService.BrowseAsync();
-
-            return Json(drivers);
-        }  
-
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]CreateDriver command)
+        public async Task<IActionResult> Post([FromBody]CreateDriverRoute command)
         {
             await CommandDispatcher.DispatchAsync(command);
 
