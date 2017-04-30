@@ -1,6 +1,5 @@
 using Autofac;
 using Microsoft.Extensions.Configuration;
-using Passenger.Infrastructure.Factories;
 using Passenger.Infrastructure.IoC.Modules;
 using Passenger.Infrastructure.Mappers;
 
@@ -19,9 +18,6 @@ namespace Passenger.Infrastructure.IoC
         {
             builder.RegisterInstance(AutoMapperConfig.Initialize())
                 .SingleInstance();
-            builder.RegisterType<VehicleFactory>()
-                   .As<IVehicleFactory>()
-                   .SingleInstance();
             builder.RegisterModule<CommandModule>();
             builder.RegisterModule<RepositoryModule>();
             builder.RegisterModule<ServiceModule>();

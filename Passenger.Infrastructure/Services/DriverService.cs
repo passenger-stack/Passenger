@@ -5,7 +5,6 @@ using AutoMapper;
 using Passenger.Core.Domain;
 using Passenger.Core.Repositories;
 using Passenger.Infrastructure.DTO;
-using Passenger.Infrastructure.Factories;
 
 namespace Passenger.Infrastructure.Services
 {
@@ -13,16 +12,16 @@ namespace Passenger.Infrastructure.Services
     {
         private readonly IDriverRepository _driverRepository;
         private readonly IUserRepository _userRepository;
-        private readonly IVehicleFactory _vehicleFactory;
+        private readonly IVehicleProvider _vehicleProvider;
         private readonly IMapper _mapper;
 
         public DriverService(IDriverRepository driverRepository,
             IUserRepository userRepository,
-            IVehicleFactory vehicleFactory, IMapper mapper)
+            IVehicleProvider vehicleProvider, IMapper mapper)
         {
             _driverRepository = driverRepository;
             _userRepository = userRepository;
-            _vehicleFactory = vehicleFactory;
+            _vehicleProvider = vehicleProvider;
             _mapper = mapper;
         }
 
@@ -63,7 +62,7 @@ namespace Passenger.Infrastructure.Services
             {
                 throw new Exception($"Driver with user id: '{userId}' was not found.");
             }
-            var vehicle = _vehicleFactory.Create(brand, name);
+            var vehicle = await _vehicleProvider.GetAsync(brand, name);
             driver.SetVehicle(vehicle);
         }
 
