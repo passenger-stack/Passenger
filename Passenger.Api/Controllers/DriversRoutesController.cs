@@ -23,9 +23,18 @@ namespace Passenger.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]CreateDriverRoute command)
         {
-            await CommandDispatcher.DispatchAsync(command);
+            await DispatchAsync(command);
 
             return NoContent();
-        }        
+        }
+
+        [Authorize]
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromBody]CreateDriverRoute command)
+        {
+            await DispatchAsync(command);
+
+            return NoContent();
+        }                
     }
 }

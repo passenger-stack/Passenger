@@ -33,21 +33,32 @@ namespace Passenger.Core.Domain
             Name = user.Username;
         }
 
-        public void SetVehicle(string brand, string name, int seats)
+        public void SetVehicle(Vehicle vehicle)
         {
-            Vehicle = Vehicle.Create(brand, name, seats);
+            Vehicle = vehicle;
             UpdatedAt = DateTime.UtcNow;
         }
 
-        public void AddRoute(string name, Node start, Node end)
+        public void AddRoute(string name, Node start, Node end, double length)
         {
             var route = Routes.SingleOrDefault(x => x.Name == name);
             if(route != null)
             {
                 throw new Exception($"Route with name: '{name}' already exists for driver: {name}.");
             }
-            _routes.Add(Route.Create(name, start, end));
+            _routes.Add(Route.Create(name, start, end, length));
             UpdatedAt = DateTime.UtcNow;
+        }
+
+        public void DeleteRoute(string name)
+        {
+            var route = Routes.SingleOrDefault(x => x.Name == name);
+            if(route == null)
+            {
+                throw new Exception($"Route named: '{name}' for driver: '{Name}' was not found.");
+            }
+            _routes.Remove(route);
+            UpdatedAt = DateTime.UtcNow;            
         }
     }
 }

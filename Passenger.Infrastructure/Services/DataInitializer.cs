@@ -33,7 +33,7 @@ namespace Passenger.Infrastructure.Services
                     username, "secret", "user"));
                 _logger.LogTrace($"Adding user: '{username}'.");
                 tasks.Add(_driverService.CreateAsync(userId));
-                tasks.Add(_driverService.SetVehicle(userId, "BMW", "i8", 5));
+                tasks.Add(_driverService.SetVehicle(userId, "BMW", "i8"));
                 tasks.Add(_driverRouteService.AddAsync(userId, "Default route",
                     1,1,2,2));
                 tasks.Add(_driverRouteService.AddAsync(userId, "Job route",

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using Passenger.Core.Repositories;
 using Passenger.Infrastructure.IoC;
 using Passenger.Infrastructure.IoC.Modules;
@@ -39,7 +40,8 @@ namespace Passenger.Api
             // Add framework services.
             services.AddAuthorization(x => x.AddPolicy("admin", p => p.RequireRole("admin")));
             services.AddMemoryCache();
-            services.AddMvc();
+            services.AddMvc()
+                    .AddJsonOptions(x => x.SerializerSettings.Formatting = Formatting.Indented);
             var builder = new ContainerBuilder();
             builder.Populate(services);
             builder.RegisterModule(new ContainerModule(Configuration));
