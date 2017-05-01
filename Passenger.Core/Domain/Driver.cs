@@ -44,7 +44,7 @@ namespace Passenger.Core.Domain
             var route = Routes.SingleOrDefault(x => x.Name == name);
             if(route != null)
             {
-                throw new Exception($"Route with name: '{name}' already exists for driver: {name}.");
+                throw new Exception($"Route with name: '{name}' already exists for driver: {Name}.");
             }
             _routes.Add(Route.Create(name, start, end, length));
             UpdatedAt = DateTime.UtcNow;

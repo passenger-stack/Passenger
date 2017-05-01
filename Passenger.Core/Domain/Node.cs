@@ -5,22 +5,22 @@ namespace Passenger.Core.Domain
     public class Node
     {
         public string Address { get; protected set; }
-        public double Longitude { get; protected set; }
         public double Latitude { get; protected set; }
+        public double Longitude { get; protected set; }
         public DateTime UpdatedAt { get; protected set; }
 
         protected Node()
         {
         }
 
-        protected Node(string address, double longitude, double latitude) 
+        protected Node(string address, double latitude, double longitude) 
         {
             SetAdress(address);
-            SetLongitude(longitude);
             SetLatitude(latitude);
+            SetLongitude(longitude);
         }
 
-        public void SetAdress(string address) 
+        private void SetAdress(string address) 
         {
             if(string.IsNullOrWhiteSpace(address))
             {
@@ -31,7 +31,7 @@ namespace Passenger.Core.Domain
             UpdatedAt = DateTime.UtcNow;
         }
 
-        public void SetLongitude(double longitude) 
+        private void SetLongitude(double longitude) 
         {
             if (double.IsNaN(longitude)) 
             {
@@ -46,7 +46,7 @@ namespace Passenger.Core.Domain
             UpdatedAt = DateTime.UtcNow;
         }
         
-        public void SetLatitude(double latitude) 
+        private void SetLatitude(double latitude) 
         {
             if (double.IsNaN(Latitude)) 
             {
@@ -61,7 +61,7 @@ namespace Passenger.Core.Domain
             UpdatedAt = DateTime.UtcNow;
         }
 
-        public static Node Create(string address, double longitude, double latitude)
-            => new Node(address, longitude, latitude);
+        public static Node Create(string address, double latitude, double longitude)
+            => new Node(address, latitude, longitude);
     }
 }

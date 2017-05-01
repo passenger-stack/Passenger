@@ -18,7 +18,7 @@ namespace Passenger.Api.Controllers
         {
             _userService = userService;
         }
-
+        
         public async Task<IActionResult> Get()
         {
             var users = await _userService.BrowseAsync();

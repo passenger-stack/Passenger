@@ -8,21 +8,21 @@ namespace Passenger.Core.Domain
         public string Name { get; protected set; }
         public Node Start { get; protected set; }
         public Node End { get; protected set; }
-        public double Length { get; protected set; }
+        public double Distance { get; protected set; }
 
         protected Route()
         {
         }
 
-        protected Route(string name, Node start, Node end, double length)
+        protected Route(string name, Node start, Node end, double distance)
         {
             Name = name;
             Start = start;
             End = end;
-            Length = length;
+            Distance = distance;
         }
 
-        public static Route Create(string name, Node start, Node end, double length)
-            => new Route(name, start, end, length);
+        public static Route Create(string name, Node start, Node end, double distance)
+            => new Route(name, start, end, distance);
     }
 }

@@ -17,9 +17,9 @@ namespace Passenger.Api.Controllers
 
         public async Task<IActionResult> Get()
         {
-            var users = await _vehicleProvider.BrowseAsync();
+            var vehicles = await _vehicleProvider.BrowseAsync();
 
-            return Json(users);
+            return Json(vehicles);
         }
     }
 }

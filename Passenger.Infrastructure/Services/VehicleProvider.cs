@@ -52,7 +52,7 @@ namespace Passenger.Infrastructure.Services
             return vehicles; 
         }
                 
-        public async Task<Vehicle> GetAsync(string brand, string name)
+        public async Task<VehicleDto> GetAsync(string brand, string name)
         {
             if(!availableVehicles.ContainsKey(brand))
             {
@@ -65,7 +65,12 @@ namespace Passenger.Infrastructure.Services
                 throw new Exception($"Vehicle: '{name}' for brand: '{brand}' is not available.");
             }
 
-            return await Task.FromResult(Vehicle.Create(brand, name, vehicle.Seats));
+            return await Task.FromResult(new VehicleDto
+            {
+                Brand = brand,
+                Name = vehicle.Name,
+                Seats = vehicle.Seats
+            });
         }
 
         //Let's assume it's either an expensive or often used query on a database.
