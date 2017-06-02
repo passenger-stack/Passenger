@@ -7,7 +7,7 @@ using AutoMapper;
 using Passenger.Core.Domain;
 using System;
 
-namespace Passenger.Tests.ServicesmapperMock
+namespace Passenger.Tests.Services
 {
     public class UserServiceTests
     {
@@ -62,6 +62,5 @@ namespace Passenger.Tests.ServicesmapperMock
 
             userRepositoryMock.Verify(x => x.GetAsync(It.IsAny<string>()), Times.Once());
         }
-
     }
 }
