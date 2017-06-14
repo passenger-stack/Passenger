@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using NLog;
@@ -23,6 +24,13 @@ namespace Passenger.Infrastructure.Services
 
         public async Task SeedAsync()
         {
+            var users = await _userService.BrowseAsync();
+            if(users.Any())
+            {
+                Logger.Trace("Data was already initialized.");
+
+                return; 
+            }
             Logger.Trace("Initializing data...");    
             var tasks = new List<Task>();
             for(var i=1; i<=10; i++)
@@ -31,7 +39,7 @@ namespace Passenger.Infrastructure.Services
                 var username = $"user{i}";
                 await _userService.RegisterAsync(userId, $"user{i}@test.com",
                                                  username, "secret", "user");
-;                Logger.Trace($"Adding user: '{username}'.");
+                Logger.Trace($"Adding user: '{username}'.");
                 await _driverService.CreateAsync(userId);
                 await _driverService.SetVehicle(userId, "BMW", "i8");
                 await _driverRouteService.AddAsync(userId, "Default route",
