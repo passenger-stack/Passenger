@@ -15,7 +15,15 @@
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="1.1.1" />
+    <PackageReference Include="MongoDb.Driver" Version="2.4.4" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.01" />
-    <PackageReference Include="NLog.Extensions.Logging " Version="1.0.0-*" />
+    <PackageReference Include="NLog.Extensions.Logging " Version="1.0.0-rtm-beta5 " />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mongo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Repositories\DriverRepository.cs" />
   </ItemGroup>
 </Project>

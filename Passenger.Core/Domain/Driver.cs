@@ -8,6 +8,7 @@ namespace Passenger.Core.Domain
     {
         private ISet<Route> _routes = new HashSet<Route>();
         private ISet<DailyRoute> _dailyRoutes = new HashSet<DailyRoute>();
+
         public Guid UserId { get; protected set; }
         public string Name { get; protected set; }
         public Vehicle Vehicle { get; protected set; }

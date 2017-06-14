@@ -17,7 +17,6 @@ namespace Passenger.Core.Domain
 
         protected DailyRoute()
         {
-            Id = Guid.NewGuid();
         }
 
         public void AddPassengerNode(Passenger passenger, Node node)

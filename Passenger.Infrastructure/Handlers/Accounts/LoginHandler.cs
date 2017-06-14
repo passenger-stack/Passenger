@@ -33,6 +33,7 @@ namespace Passenger.Infrastructure.Handlers.Accounts
 	            var jwt = _jwtHandler.CreateToken(user.Id, user.Role);
 	            _cache.SetJwt(command.TokenId, jwt);
 	        })
-            .ExecuteAsync();
+            .Next()
+            .ExecuteAllAsync();
     }
 }
