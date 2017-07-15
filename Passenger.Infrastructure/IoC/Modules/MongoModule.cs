@@ -26,7 +26,7 @@ namespace Passenger.Infrastructure.IoC.Modules
 				return database;
 			}).As<IMongoDatabase>();
 
-			var assembly = typeof(RepositoryModule)
+			var assembly = typeof(MongoModule)
 				.GetTypeInfo()
 				.Assembly;
 

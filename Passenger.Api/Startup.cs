@@ -13,6 +13,7 @@ using NLog.Extensions.Logging;
 using NLog.Web;
 using Passenger.Api.Framework;
 using Passenger.Core.Repositories;
+using Passenger.Infrastructure.EF;
 using Passenger.Infrastructure.IoC;
 using Passenger.Infrastructure.IoC.Modules;
 using Passenger.Infrastructure.Mappers;
@@ -46,6 +47,10 @@ namespace Passenger.Api
             services.AddMemoryCache();
             services.AddMvc()
                     .AddJsonOptions(x => x.SerializerSettings.Formatting = Formatting.Indented);
+            services.AddEntityFrameworkSqlServer()
+                    .AddEntityFrameworkInMemoryDatabase()
+                    .AddDbContext<PassengerContext>();
+            
             var builder = new ContainerBuilder();
             builder.Populate(services);
             builder.RegisterModule(new ContainerModule(Configuration));

@@ -53,10 +53,9 @@ namespace Passenger.Infrastructure.Services
                 var userId = Guid.NewGuid();
                 var username = $"admin{i}";
                  Logger.Trace($"Adding admin: '{username}'.");
-                tasks.Add(_userService.RegisterAsync(userId, $"admin{i}@test.com", 
-                    username, "secret", "admin"));
+                await _userService.RegisterAsync(userId, $"admin{i}@test.com", 
+                    username, "secret", "admin");
             }
-            await Task.WhenAll(tasks);
             Logger.Trace("Data was initialized.");  
         }
     }
