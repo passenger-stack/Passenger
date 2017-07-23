@@ -1,0 +1,25 @@
+version: "2"
+
+services:
+  api:
+    build: ../src/Passenger.Api
+    links:
+      - mongo
+      - mssql
+    ports:
+      - '5000:5000'
+
+  mongo:
+    image: mongo
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - '27017:27017'
+
+  mssql:
+    image: microsoft/mssql-server-linux
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: "Abcd1234!"
+    ports:
+      - "1433:1433"
