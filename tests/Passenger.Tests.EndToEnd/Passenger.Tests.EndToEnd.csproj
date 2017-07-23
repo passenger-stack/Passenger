@@ -13,8 +13,8 @@
     <Content Include="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../Passenger.Api/Passenger.Api.csproj" />
-    <ProjectReference Include="../Passenger.Infrastructure/Passenger.Infrastructure.csproj" />
+    <ProjectReference Include="../../src/Passenger.Api/Passenger.Api.csproj" />
+    <ProjectReference Include="../../src/Passenger.Infrastructure/Passenger.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,20 +1,20 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passenger.Api", "Passenger.Api\Passenger.Api.csproj", "{DB49DC22-9B51-47D2-B217-3771CDAB3D4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passenger.Api", "src\Passenger.Api\Passenger.Api.csproj", "{DB49DC22-9B51-47D2-B217-3771CDAB3D4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passenger.Core", "Passenger.Core\Passenger.Core.csproj", "{57D81DC5-24E1-47BA-8459-9C4EF6EDECED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passenger.Core", "src\Passenger.Core\Passenger.Core.csproj", "{57D81DC5-24E1-47BA-8459-9C4EF6EDECED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passenger.Infrastructure", "Passenger.Infrastructure\Passenger.Infrastructure.csproj", "{842B19F0-1CB4-4658-8C4C-B1DC534A4AF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passenger.Infrastructure", "src\Passenger.Infrastructure\Passenger.Infrastructure.csproj", "{842B19F0-1CB4-4658-8C4C-B1DC534A4AF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passenger.Tests", "Passenger.Tests\Passenger.Tests.csproj", "{1EE7568F-E700-4C2D-B638-F172F707C14D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passenger.Tests", "tests\Passenger.Tests\Passenger.Tests.csproj", "{1EE7568F-E700-4C2D-B638-F172F707C14D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8A0C5918-B860-44C9-9013-CB2A2BEF1729}"
 	ProjectSection(SolutionItems) = preProject
 		Passenger.sln = Passenger.sln
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passenger.Tests.EndToEnd", "Passenger.Tests.EndToEnd\Passenger.Tests.EndToEnd.csproj", "{42B88B97-254A-4DE2-B505-AEAFCF317E6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passenger.Tests.EndToEnd", "tests\Passenger.Tests.EndToEnd\Passenger.Tests.EndToEnd.csproj", "{42B88B97-254A-4DE2-B505-AEAFCF317E6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

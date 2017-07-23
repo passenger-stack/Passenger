@@ -1,4 +1,5 @@
 #!/bin/bash
+cd tests
 projects=(Passenger.Tests Passenger.Tests.EndToEnd)
 for project in ${projects[*]}
 do
