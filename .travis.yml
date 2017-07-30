@@ -8,12 +8,7 @@ branches:
     - master
     - develop
 before_script:
-  - chmod a+x ./scripts/travis-build.sh
-  - chmod a+x ./scripts/test.sh
-  - chmod a+x ./scripts/test-e2e.sh
-  - chmod a+x ./scripts/publish.sh
-  - chmod a+x ./scripts/docker-publish.sh
-  - chmod a+x ./scripts/travis-success.sh
+  - chmod -R a+x scripts
 script:
   - ./scripts/travis-build.sh
   - ./scripts/test.sh
